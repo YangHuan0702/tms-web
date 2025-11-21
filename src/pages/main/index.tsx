@@ -1,9 +1,11 @@
 
 import { Layout } from 'antd';
-import React, { Component, useState } from 'react';
+import React, { Component, useState,Suspense  } from 'react';
 import './index.less'; 
 import TmsHeader from './header'
 import Menu from './menu'
+import { Outlet, Route, Routes } from 'react-router-dom';
+import {routes} from '@/router/index'
 
 
 const layoutStyle = {
@@ -17,23 +19,21 @@ const contentStyle: React.CSSProperties = {
   minHeight: 120,
   lineHeight: '120px',
   color: '#fff',
-  backgroundColor: '#0958d9',
+  backgroundColor: '#fff',
 };
 
 const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
-
     <Layout style={layoutStyle}>
         <TmsHeader />
-
         <Layout>
           <Sider width={256} theme='light'>
                 <Menu></Menu>
           </Sider>
           <Content style={contentStyle}>
-            Content
+            <Outlet />
           </Content>
         </Layout>
     </Layout>

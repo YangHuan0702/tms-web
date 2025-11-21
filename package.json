@@ -48,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "axios": "^1.13.2",
     "craco-less": "^3.0.1",
     "less": "^4.4.2",
     "less-loader": "^12.3.0"

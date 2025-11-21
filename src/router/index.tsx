@@ -2,10 +2,13 @@ import { useRoutes } from "react-router-dom";
 import Login from '@/pages/login'
 import RouterNotFound from '@/pages/error/404'
 import Main from '@/pages/main'
+import React, { lazy } from 'react';
+import path from "path";
 
 
-export default function AppRouter() {
-    let navRouters = [
+const AccountInfo = lazy(() => import('@/components/account/account_info'))
+
+export const routes = [
         // 导航路由
         {
             path: '/',
@@ -16,11 +19,18 @@ export default function AppRouter() {
             element: <Login />
         },
         {
-            path : '*',
+            path : '/404',
             element: <RouterNotFound />
+        }, 
+        {
+            path: '/account/info',
+            element: <AccountInfo />
         }
     ];
-    const element = useRoutes(navRouters)
+
+
+export default function AppRouter() {
+    const element = useRoutes(routes)
     return element
 }
 

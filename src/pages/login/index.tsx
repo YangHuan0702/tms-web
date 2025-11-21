@@ -1,9 +1,14 @@
+import { login } from '@/service/api/user';
 import { Button, Form, Input, Col, Row } from 'antd';
 import React from 'react';
 
 const Index: React.FC = () => {
   const onFinish = (values: any) => {
-    console.log('Success:', values);
+    login(values).then((response: any) => {
+      console.log('response',response)
+    }).catch(error => {
+      console.log('error:',error)
+    })
   };
 
   const onFinishFailed = (errorInfo: any) => {

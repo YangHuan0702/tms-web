@@ -5,6 +5,7 @@ module.exports = {
   webpack: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      "@api": path.resolve(__dirname, "./src/service/api"),
     },
     module: {
       rules: [
